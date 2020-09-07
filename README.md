@@ -31,10 +31,10 @@ Things you may want to cover:
 | nickname            | string | null: false  |
 | email               | string | null: false  |
 | password            | string | null: false  |
-| family-name         | string | null: false  |
-| first-name          | string | null: false  |
-| family-name-reading | string | null: false  |
-| first-name-reading  | string | null: false  |
+| family_name         | string | null: false  |
+| first_name          | string | null: false  |
+| family_name_reading | string | null: false  |
+| first_name_reading  | string | null: false  |
 | birthday            | date   | null: false  |
 
 ### Association
@@ -49,9 +49,9 @@ Things you may want to cover:
 | text            | text      | null: false                    |
 | condition       | integer   | null: false                    |
 | genre           | integer   | null: false                    |
-| shipping-charge | integer   | null: false                    |
-| shipping-place  | integer   | null: false                    |
-| shipping-date   | integer   | null: false                    |
+| shipping_charge | integer   | null: false                    |
+| shipping_place  | integer   | null: false                    |
+| shipping_date   | integer   | null: false                    |
 | price           | integer   | null: false                    |
 | user            | reference | null: false, foreign_key: true |
 
@@ -85,12 +85,12 @@ Things you may want to cover:
 ## Addresses テーブル
 | Column           | Type      | Options                        |
 | ---------------- | --------- | ------------------------------ |
-| portal-code      | string    | null: false                    |
+| portal_code      | string    | null: false                    |
 | prefecture       | string    | null: false                    |
 | city             | string    | null: false                    |
-| house-number     | string    | null: false                    |
-| building-name    | string    |                                |
-| phone-number     | string    | null: false                    |
+| house_number     | string    | null: false                    |
+| building_name    | string    |                                |
+| phone_number     | string    | null: false                    |
 | purchase         | reference | null: false, foreign_key: true |
 
 ### Association
