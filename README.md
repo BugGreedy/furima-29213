@@ -28,6 +28,7 @@ Things you may want to cover:
 ## users テーブル
 | Column              | Type   | Options      |
 | ------------------- | ------ |------------- |
+| nickname            | string | null: false  |
 | email               | string | null: false  |
 | password            | string | null: false  |
 | family-name         | string | null: false  |
@@ -44,13 +45,12 @@ Things you may want to cover:
 ## items テーブル                  
 | Column          | Type      | Options                        |
 | ------------    | --------- | ------------------------------ |
-| image           | string    | null: false                    |
 | name            | string    | null: false                    |
 | text            | text      | null: false                    |
-| condition       | string    | null: false                    |
-| genre           | string    | null: false                    |
-| shipping-charge | string    | null: false                    |
-| shipping-place  | date      | null: false                    |
+| condition       | integer   | null: false                    |
+| genre           | integer   | null: false                    |
+| shipping-charge | integer   | null: false                    |
+| shipping-place  | integer   | null: false                    |
 | shipping-date   | integer   | null: false                    |
 | price           | integer   | null: false                    |
 | user            | reference | null: false, foreign_key: true |
@@ -74,17 +74,13 @@ Things you may want to cover:
 ## purchase テーブル
 | Column       | Type      | Options                        |
 | ------------ | --------- | ------------------------------ |
-| Credit-Cord  | string    | null: false                    |
-| Credit-Month | integer   | null: false                    |
-| Credit-Year  | integer   | null: false                    |
-| Credit-CVC   | integer   | null: false                    |
 | user         | reference | null: false, foreign_key: true |
 | item         | reference | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
 - has_one    :address
-- belongs_to :comments
+- belongs_to :user
 
 ## Addresses テーブル
 | Column           | Type      | Options                        |
