@@ -11,6 +11,16 @@ RSpec.describe User, type: :model do
       it "入力欄に正しく記入できていれば登録できる" do
         expect(@user).to be_valid
       end
+
+      it "苗字の読みが全角カタカナだと登録できる" do
+        @user.family_name_reading = "カタカナ"
+        expect(@user).to be_valid
+      end
+
+      it "名前の読みが全角カタカナだと登録できる" do
+        @user.first_name_reading = "カタカナ"
+        expect(@user).to be_valid
+      end
   
     end
     
@@ -82,6 +92,18 @@ RSpec.describe User, type: :model do
         @user.first_name_reading = nil
         @user.valid?
         expect(@user.errors.full_messages).to include("First name reading can't be blank")
+      end
+
+      it "ユーザー本名の苗字の読みは全角カタカナでないと登録できない" do
+        @user.family_name_reading = "漢字"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name reading は全角カタカナで記入してください。")
+      end
+
+      it "ユーザー本名の名前の読みは全角カタカナでないと登録できない" do
+        @user.first_name_reading = "漢字"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name reading は全角カタカナで記入してください。")
       end
 
       it "成年月日がないと登録できない" do
