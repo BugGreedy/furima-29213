@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :purchase
 
   with_options presence: true do
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, uniqueness: true,format: { with: VALID_EMAIL_REGEX }
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+    validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
     validates :nickname, uniqueness: true
     validates :birthday
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,100}+\z/i.freeze
@@ -19,7 +19,6 @@ class User < ApplicationRecord
       validates :family_name
       validates :first_name
     end
-    
 
     with_options format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナで記入してください。'} do
       validates :family_name_reading

@@ -34,35 +34,35 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
-      
+
       it 'カテゴリーを選択しないと出品できない' do
-        @item.genre_id = "0"
+        @item.genre_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Genre は選択しないと出品できません")
+        expect(@item.errors.full_messages).to include('Genre は選択しないと出品できません')
       end
 
       it '商品の状態を選択しないと出品できない' do
-        @item.condition_id = "0"
+        @item.condition_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition は選択しないと出品できません")
+        expect(@item.errors.full_messages).to include('Condition は選択しないと出品できません')
       end
 
       it '配送料の負担を選択しないと出品できない' do
-        @item.shipping_charge_id = "0"
+        @item.shipping_charge_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge は選択しないと出品できません")
+        expect(@item.errors.full_messages).to include('Shipping charge は選択しないと出品できません')
       end
 
       it '発送元の地域を選択しないと出品できない' do
-        @item.shipping_place_id = "0"
+        @item.shipping_place_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping place は選択しないと出品できません")
+        expect(@item.errors.full_messages).to include('Shipping place は選択しないと出品できません')
       end
 
       it '発送までの日数を選択しないと出品できない' do
-        @item.shipping_date_id = "0"
+        @item.shipping_date_id = '0'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping date は選択しないと出品できません")
+        expect(@item.errors.full_messages).to include('Shipping date は選択しないと出品できません')
       end
 
       it '価格を記入しないと出品できない' do
@@ -74,38 +74,20 @@ RSpec.describe Item, type: :model do
       it '価格が300円未満では出品できない' do
         @item.price = rand(1..299)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 価格は半角数字で記入し、300〜9,999,999円にしてください")
+        expect(@item.errors.full_messages).to include('Price 価格は半角数字で記入し、300〜9,999,999円にしてください')
       end
 
       it '価格が9,999,999円より高額では出品できない' do
-        @item.price =  "10000000"
+        @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 価格は半角数字で記入し、300〜9,999,999円にしてください")
+        expect(@item.errors.full_messages).to include('Price 価格は半角数字で記入し、300〜9,999,999円にしてください')
       end
 
       it '価格は半角数字でないと記入できない' do
-        @item.price = "お"
+        @item.price = 'お'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 価格は半角数字で記入し、300〜9,999,999円にしてください")
+        expect(@item.errors.full_messages).to include('Price 価格は半角数字で記入し、300〜9,999,999円にしてください')
       end
-
-
-
-
-
-
-
-
-
-
-
     end
   end
 end
-
-# condition_id      
-# genre_id          
-# shipping_charge_id
-# shipping_place_id 
-# shipping_date_id  
-# price             
