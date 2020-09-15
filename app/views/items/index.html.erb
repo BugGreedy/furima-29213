@@ -126,7 +126,9 @@
     <%= link_to '新規投稿商品', "/item/new", class: "subtitle" %>
     <ul class='item-lists'>
 
-     <% if Item.exists? %>
+     <%# <% if Item.exists?  %>
+     <%# <% if @items.exists? %> 
+     <% if @items.length != 0 %>
      <% @items.each do |item|%>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
