@@ -19,8 +19,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
 
   def update
     if item.update(item_params)
@@ -28,9 +26,6 @@ class ItemsController < ApplicationController
     else
       rendar :edit
     end
-  end
-
-  def show
   end
 
   def destroy
