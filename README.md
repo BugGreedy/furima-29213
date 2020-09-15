@@ -56,6 +56,12 @@ Things you may want to cover:
 | user               | reference | null: false, foreign_key: true |
 
 ### Association
+- belongs_to_active_hash :genre
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :shipping_charge
+- belongs_to_active_hash :shipping_date
+- belongs_to_active_hash :shipping_place
+- has_one_attached :image
 - belongs_to :user
 - has_one    :purchase
 - has_many   :comments
