@@ -69,3 +69,4 @@ gem 'active_hash'
 # 画像うp用にActive Strage導入時
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+gem 'payjp'
