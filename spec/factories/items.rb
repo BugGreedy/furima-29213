@@ -3,7 +3,7 @@ FactoryBot.define do
     association :user
     text                    { Faker::Lorem.sentence }
     name                    { Faker::Games::Pokemon.name }
-    condition_id            {Faker::Number.between(from: 1, to: 6)}
+    condition_id            { Faker::Number.between(from: 1, to: 6)}
     genre_id                {Faker::Number.between(from: 1, to: 10)}
     shipping_charge_id      {Faker::Number.between(from: 1, to: 2)}
     shipping_place_id       {Faker::Number.between(from: 1, to: 10)}
