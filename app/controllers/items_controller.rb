@@ -20,21 +20,21 @@ class ItemsController < ApplicationController
   end
 
 
-  def update
-    if item.update(item_params)
-      redirect_to root_path
-    else
-      rendar :edit
-    end
-  end
+  # def update
+  #   if item.update(item_params)
+  #     redirect_to root_path
+  #   else
+  #     rendar :edit
+  #   end
+  # end
 
-  def destroy
-    if @item.destroy(item_params)
-      redirect_to root_path
-    else
-      rendar :edit
-    end
-  end
+  # def destroy
+  #   if @item.destroy(item_params)
+  #     redirect_to root_path
+  #   else
+  #     rendar :edit
+  #   end
+  # end
 
   private
 
