@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
     @items = Item.includes(:user)
@@ -18,6 +19,28 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if item.update(item_params)
+      redirect_to root_path
+    else
+      rendar :edit
+    end
+  end
+
+  def show
+  end
+
+  def destroy
+    if @item.destroy(item_params)
+      redirect_to root_path
+    else
+      rendar :edit
+    end
+  end
+
   private
 
   def move_to_index
@@ -26,5 +49,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :name, :text, :genre_id, :condition_id, :shipping_charge_id, :shipping_date_id, :shipping_place_id, :price).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
