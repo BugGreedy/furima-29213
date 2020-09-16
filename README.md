@@ -39,7 +39,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :order
 - has_many :comments
 
 ## items テーブル                  
@@ -63,7 +63,7 @@ Things you may want to cover:
 - belongs_to_active_hash :shipping_place
 - has_one_attached :image
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 - has_many   :comments
 
 ## comments テーブル
@@ -77,7 +77,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
-## purchase テーブル
+## order テーブル
 | Column       | Type      | Options                        |
 | ------------ | --------- | ------------------------------ |
 | user         | reference | null: false, foreign_key: true |
@@ -100,4 +100,4 @@ Things you may want to cover:
 | purchase         | reference | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order
