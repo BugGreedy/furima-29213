@@ -36,9 +36,8 @@
     <%# /支払額の表示 %>
 
 
-    <%= form_with model:@order,url: item_orders_path, method: :post, id: 'charge-form', class: 'transaction-form-wrap',html: { autocomplete: 'off' }, local: true do |f| %>
-<%# syntaxエラーを避けるために一時的に下記を記載。購入が実装できたらその↓を表示 %>
-        <%# <%= render 'shared/error_messages', model:@order %> 
+    <%= form_with model:@order,url: item_orders_path, method: :post, id: 'charge-form', class: 'transaction-form-wrap', autocomplete: 'off', local: true do |f| %>
+
     <%= render 'shared/error_messages', model: f.object %>
 
 
@@ -92,7 +91,7 @@
           <label class="form-text">郵便番号</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :postal_code , class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+        <%= f.text_field :postal_code , class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8",autocomplete: 'off'%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
@@ -106,7 +105,7 @@
           <label class="form-text">市区町村</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :city, class:"input-default", id:"city", placeholder:"例）横浜市緑区"%>
+        <%= f.text_field :city, class:"input-default", id:"city", placeholder:"例）横浜市緑区", autocomplete: 'off' %>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
