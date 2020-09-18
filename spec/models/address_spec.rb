@@ -11,49 +11,49 @@ RSpec.describe Address, type: :model do
         expect(@address).to be_valid
       end
     end
- 
+
     context '新規登録がうまくいかないとき' do
       it '郵便番号がないと登録できない' do
         @address.postal_code = nil
         @address.valid?
-        expect(@address.errors.full_messages).to include()
+        expect(@address.errors.full_messages).to include
       end
 
       it '郵便番号は"###-####"の形で記入しないと登録できない' do
-        @address.postal_code = "0000000"
+        @address.postal_code = '0000000'
         @address.valid?
-        expect(@address.errors.full_messages).to include()
+        expect(@address.errors.full_messages).to include
       end
-   
+
       it '都道府県を選択しないと登録できない' do
-        @address.prefecture_id = "0"
+        @address.prefecture_id = '0'
         @address.valid?
-        expect(@address.errors.full_messages).to include()
+        expect(@address.errors.full_messages).to include
       end
 
       it '市町区村を入力しないと登録できない' do
         @address.city = nil
         @address.valid?
-        expect(@address.errors.full_messages).to include()
+        expect(@address.errors.full_messages).to include
       end
 
       it '番地を入力しないと登録できない' do
         @address.house_number = nil
         @address.valid?
-        expect(@address.errors.full_messages).to include()
+        expect(@address.errors.full_messages).to include
       end
 
       it '電話番号を入力しないと登録できない' do
         @address.phone_number = nil
         @address.valid?
-        expect(@address.errors.full_messages).to include()
+        expect(@address.errors.full_messages).to include
       end
 
       it '電話番号はハイフンなしで11桁以下で半角数字で入力しないと登録できない' do
-        @address.phone_number = "aaaaaaaaaaaaaaa"
+        @address.phone_number = 'aaaaaaaaaaaaaaa'
         @address.valid?
-        expect(@address.errors.full_messages).to include()
-      end      
+        expect(@address.errors.full_messages).to include
+      end
     end
   end
 end
