@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :orders
   end
-
-
   resources :users
 
   post '/items/new' => 'items#create'
