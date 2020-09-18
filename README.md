@@ -39,7 +39,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :order
 - has_many :comments
 
 ## items テーブル                  
@@ -56,8 +56,14 @@ Things you may want to cover:
 | user               | reference | null: false, foreign_key: true |
 
 ### Association
+- belongs_to_active_hash :genre
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :shipping_charge
+- belongs_to_active_hash :shipping_date
+- belongs_to_active_hash :shipping_place
+- has_one_attached :image
 - belongs_to :user
-- has_one    :purchase
+- has_one    :order
 - has_many   :comments
 
 ## comments テーブル
@@ -71,7 +77,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
-## purchase テーブル
+## order テーブル
 | Column       | Type      | Options                        |
 | ------------ | --------- | ------------------------------ |
 | user         | reference | null: false, foreign_key: true |
@@ -85,13 +91,13 @@ Things you may want to cover:
 ## Addresses テーブル
 | Column           | Type      | Options                        |
 | ---------------- | --------- | ------------------------------ |
-| portal_code      | string    | null: false                    |
+| postal_code      | string    | null: false                    |
 | prefecture_id    | integer   | null: false                    |
 | city             | string    | null: false                    |
 | house_number     | string    | null: false                    |
 | building_name    | string    |                                |
 | phone_number     | string    | null: false                    |
-| purchase         | reference | null: false, foreign_key: true |
+| order            | reference | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :purchase
+- belongs_to :order

@@ -126,8 +126,6 @@
     <%= link_to '新規投稿商品', "/item/new", class: "subtitle" %>
     <ul class='item-lists'>
 
-     <%# <% if Item.exists?  %>
-     <%# <% if @items.exists? %> 
      <% if @items.length != 0 %>
      <% @items.each do |item|%>
       <li class='list'>
@@ -135,9 +133,13 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
+          <%# itemが売れていればSold Out!を表示%>
+          <% if item.order.present? %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <% end %>
+          <%# /itemが売れていればSold Out!を表示%>
 
         </div>
         <% end %>
@@ -181,10 +183,6 @@
    <% end %>
   </div>
   <%# /商品一覧 %>
-  
-
-
-
 </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>

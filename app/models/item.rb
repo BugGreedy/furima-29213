@@ -6,8 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_date
   belongs_to_active_hash :shipping_place
 
-  belongs_to :user, optional: true
-  has_one    :purchase
+  belongs_to :user
+  has_one    :order
   has_many   :comments
   has_one_attached :image
 
