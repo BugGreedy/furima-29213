@@ -8,9 +8,8 @@ class OrderAddress
     validates :house_number
     validates :phone_number, format: { with: /\A[0-9]{,11}\z/, message: '電話番号は半角数字のみで記入し、11桁以下にしてください' }
     validates :token
+    validates :prefecture_id, numericality: { other_than: 0, message: '都道府県を選択してください' }
   end
-
-  validates :prefecture_id, numericality: { other_than: 0, message: '都道府県を選択してください' }
 
   def save
     order = Order.create!(item_id: item_id, user_id: user_id)

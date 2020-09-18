@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
   before_action :correct_user
-  before_action :move_to_login
   before_action :sold_out
 
   def index
@@ -41,10 +40,6 @@ class OrdersController < ApplicationController
 
   def correct_user
     redirect_to root_path if @item.user == current_user
-  end
-
-  def move_to_login
-    redirect_to user_session_path unless user_signed_in?
   end
 
   def sold_out
