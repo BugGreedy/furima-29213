@@ -35,8 +35,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def show
+    @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
+  end
 
+  private
   def move_to_index
     redirect_to root_path unless user_signed_in?
   end
