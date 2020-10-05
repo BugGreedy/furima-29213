@@ -1,11 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    Comment.create(commment_params)
-    redirect_to "/item/#{comment.item.id}"
+      comment = Comment.create(comment_params)
+      redirect_to "/items/#{comment.item_id}"
   end
 
+  def index
+    @comments = Comment.all
+  end
+  
   private
-  def commment_params
+  def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 end
