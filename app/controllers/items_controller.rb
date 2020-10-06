@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @items = Item.includes(:user).order("created_at DESC")
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def move_to_index
     redirect_to root_path unless user_signed_in?
   end

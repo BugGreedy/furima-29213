@@ -19,7 +19,6 @@ class OrdersController < ApplicationController
     end
   end
 
-
   private
 
   def set_item
