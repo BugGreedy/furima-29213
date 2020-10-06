@@ -1,8 +1,6 @@
 <%= render "shared/header" %>
 <div class='main'>
   <div class='item-contents'>
-    
-    
     <div class="contents row">
       <% @items.each do |item| %>
         <%= render partial: "item", locals: { item: item } %>
